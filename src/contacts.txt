@@ -1,8 +1,8 @@
-Goku
-Piccolo
-Vegeta
-Bulma
-Yamcha
+Goku          | 233 787 5444
+Piccolo       | 433 888 3521
+Vegeta        | 988 300 4000
+Bulma         | 344 651 2977
+Yamcha        | 225 388 9001
 Ramon
 Justin
 Julia
