@@ -39,6 +39,8 @@ public class ContactsTest extends Contacts{
                 case 1:
                     list = Files.readAllLines(contactsPath);
                     Collections.sort(list);
+                    System.out.println("Name                                | Phone number\n" +
+                            "--------------------------------------------------------");
                     for (int i = 0; i < list.size(); i += 1) {
                         System.out.println((i + 1) + " : " + list.get(i));
                     }

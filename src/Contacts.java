@@ -61,9 +61,17 @@ public class Contacts {
         System.out.println("Which Contact would you like to Delete?");
         String input = in.getString();
         for (int i = 0; i <= removeList.size() - 1; i++) {
-            if (removeList.get(i).toLowerCase().contains(input.toLowerCase())) { String item = removeList.get(i);
-                removeList.remove(i);
-                System.out.println("You have deleted " + item);
+            if (removeList.get(i).toLowerCase().contains(input.toLowerCase())) {
+                String item = removeList.get(i);
+                System.out.println("Would you like to remove: " + item + "? Enter y/n" );
+                boolean removeInput = in.yesNo();
+                if (removeInput == true) {
+                    removeList.remove(i);
+                    System.out.println("You have deleted " + item);
+                } else  {
+                    System.out.println("Not deleting: " + item + "." + "\n Returning to menu.");
+                    break;
+                }
             }
         }
         Files.write(contactsPath, removeList);
