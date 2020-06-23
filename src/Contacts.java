@@ -31,12 +31,23 @@ public class Contacts {
         String inputLast = in.getString();
         System.out.println("Phone number:");
         String inputNum = in.getString();
+        if(inputNum.length() == 7) {
+            String number = inputNum.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
+            String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, number);
+            System.out.println("You have added: " + contactInfo);
+            Files.write(contactsPath, Arrays.asList(contactInfo),
+                    StandardOpenOption.APPEND );
+        } else if(inputNum.length() == 10) {
+            String number = inputNum.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
 
-        String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, inputNum);
-        System.out.println("You have added: " + contactInfo);
-        Files.write(contactsPath, Arrays.asList(contactInfo),
-                StandardOpenOption.APPEND
-        );
+            String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, number);
+            System.out.println("You have added: " + contactInfo);
+            Files.write(contactsPath, Arrays.asList(contactInfo),
+                    StandardOpenOption.APPEND
+            );
+        } else {
+            System.out.println("Please enter a 7 digit number or 10 digit number with area code: ");
+        }
     }
 
 
