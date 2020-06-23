@@ -33,7 +33,7 @@ public class Input {
         if (sc.hasNextInt()) {
             return sc.nextInt();
         } else {
-            System.out.println("Invalid input. Enter valid integer.");
+            System.out.println("Invalid selection please pick a number 1-5.");
             sc.next();
             return getInt();
         }
