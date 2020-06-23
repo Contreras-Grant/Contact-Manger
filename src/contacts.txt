@@ -1,10 +1,2 @@
-Goku          | 233 787 5444
-Piccolo       | 433 888 3521
-Vegeta        | 988 300 4000
-Bulma         | 344 651 2977
-Yamcha        | 225 388 9001
-Ramon
-Justin
-Julia
-Augustine
-Sophie
+leroy           grant           |    444-444-4444
+julia           contreras       |    210-618-4628
