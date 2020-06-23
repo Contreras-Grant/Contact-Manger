@@ -27,7 +27,7 @@ public class Contacts {
         String directory = "test";
         Path contactsFile = Paths.get("src","contacts.txt");
 
-        menu();
+//        menu();
 
 
 //        String menu ="\n\nMENU";
@@ -56,11 +56,11 @@ public class Contacts {
 //        Writing to contacts.txt
 
         List<String> contacts = new ArrayList<>();
-        contacts.add("Goku");
-        contacts.add("Piccolo");
-        contacts.add("Vegeta");
-        contacts.add("Bulma");
-        contacts.add("Yamcha");
+        contacts.add("Goku          | 233 787 5444");
+        contacts.add("Piccolo       | 433 888 3521");
+        contacts.add("Vegeta        | 988 300 4000");
+        contacts.add("Bulma         | 344 651 2977");
+        contacts.add("Yamcha        | 225 388 9001");
 
         try {
             Files.write(contactsFile, contacts);
