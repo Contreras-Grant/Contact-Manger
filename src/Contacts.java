@@ -24,19 +24,39 @@ public class Contacts {
 
     public static void addContact() throws IOException {
         Input in = new Input();
+        List<String> list = Files.readAllLines(contactsPath);
         System.out.println("Please enter the new contact information: ");
         System.out.println("First name:");
         String inputFirst = in.getString();
         System.out.println("Last name:");
         String inputLast = in.getString();
+        //checks if duplicate name
+//        String input = inputFirst  + "           " + inputLast;
+//        System.out.println(input);
+//        for (int i = 0; i <= list.size() - 1; i++) {
+//            if (list.get(i).toLowerCase().contains(input.toLowerCase())) {
+//                System.out.println("Duplicate name exist. Overwrite? (y/n)");
+//            }
+//        }
         System.out.println("Phone number:");
         String inputNum = in.getString();
+        if(inputNum.length() == 7) {
+            String number = inputNum.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
+            String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, number);
+            System.out.println("You have added: " + contactInfo);
+            Files.write(contactsPath, Arrays.asList(contactInfo),
+                    StandardOpenOption.APPEND );
+        } else if(inputNum.length() == 10) {
+            String number = inputNum.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
 
-        String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, inputNum);
-        System.out.println("You have added: " + contactInfo);
-        Files.write(contactsPath, Arrays.asList(contactInfo),
-                StandardOpenOption.APPEND
-        );
+            String contactInfo = String.format("%-15s %-15s | %15s", inputFirst, inputLast, number);
+            System.out.println("You have added: " + contactInfo);
+            Files.write(contactsPath, Arrays.asList(contactInfo),
+                    StandardOpenOption.APPEND
+            );
+        } else {
+            System.out.println("Please enter a 7 digit number or 10 digit number with area code: ");
+        }
     }
 
 
@@ -53,6 +73,28 @@ public class Contacts {
             }
         }
     }
+//    public static void overWriteContact() throws IOException {
+//        Input in = new Input();
+//        List<String> removeList = Files.readAllLines(contactsPath);
+//        System.out.println("Which Contact would you like to Delete?");
+//        String input = in.getString();
+//        for (int i = 0; i <= removeList.size() - 1; i++) {
+//            if (removeList.get(i).toLowerCase().contains(input.toLowerCase())) {
+//                String item = removeList.get(i);
+//                System.out.println("Would you like to remove: " + item + "? Enter y/n" );
+//                boolean removeInput = in.yesNo();
+//                if (removeInput == true) {
+//                    removeList.remove(i);
+//                    System.out.println("You have deleted " + item);
+//                } else  {
+//                    System.out.println("Not deleting: " + item + "." + "\n Returning to menu.");
+//                    break;
+//                }
+//            }
+//        }
+//        Files.write(contactsPath, removeList);
+//
+//    }
 
 
     public static void removeContact() throws IOException {

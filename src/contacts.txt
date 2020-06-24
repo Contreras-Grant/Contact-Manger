@@ -1,3 +1,3 @@
-leroy           grant           |    444-444-4444
-julia           contreras       |    210-618-4628
-john            doe             |    000-000-0000
+
+Julia           Contreras       |  (123) 456-7890
+Leroy           Grant           |        123-4567
